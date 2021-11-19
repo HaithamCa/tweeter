@@ -1,0 +1,47 @@
+header.profile {
+  height: 500px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #cc8800;
+  background-image: url("https://www.transparenttextures.com/patterns/cardboard-flat.png");
+}
+
+header.profile img {
+    margin-top: 5em
+}
+
+@media (min-width: 1024px) {
+    .header-main-container {
+      display: flex;
+      flex-direction: column;
+    }
+  
+    header.profile {
+      width: 35%;
+      position: fixed;
+      top: 50px;
+      margin: 4em 0em 1em 2em;
+      padding-top: 1em;
+      border-radius: 3%;
+    }
+    header.profile img {
+        margin-top: 2em
+    }
+  
+    main.container {
+      width: 50%;
+      margin-right: 2em;
+      margin-top: 4em;
+    }
+    section.new-tweet {
+      background-color: transparent;
+      border: none;
+    }
+  
+    nav#nav-bar {
+      background-color: #4056a1;
+    }
+  }
+  
