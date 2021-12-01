@@ -11,6 +11,7 @@ const escape = function (str) {
 };
 
 const renderTweets = function (tweets) {
+  $("#tweets-container").empty();
   return tweets.forEach((tweet) => {
     $("#tweets-container").prepend(createTweetElement(tweet));
   });
@@ -52,8 +53,6 @@ $(document).ready(() => {
   $("#compose").on("submit", function (event) {
     event.preventDefault();
     const tweet = $("#tweet-text").val();
-    $("#tweet-text").val("");
-    console.log(tweet);
     if (!tweet) {
       $(".error-message").slideDown("slow");
       $(".error-message")
@@ -76,11 +75,11 @@ $(document).ready(() => {
         method: "POST",
         data: { text: tweet },
       }).then(() => {
+        $("#tweet-text").val("");
         loadTweets();
         $(".error-message").slideUp();
       });
     }
-    console.log($(this).serialize());
   });
   loadTweets();
 });
