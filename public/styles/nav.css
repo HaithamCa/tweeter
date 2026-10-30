@@ -1,19 +1,18 @@
 #nav-bar {
-  height: 120;
+  height: 96px;
+  top: 0;
+  left: 0;
   width: 100%;
-  background-color: transparent;
+  background-color: #4056a1;
   color: #ffffff;
-  padding-right: 1.5em;
-  padding-left: 1.5em;
+  padding: 0 1.5em;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 1em;
-  padding-top: 1em;
-  align-content: center;
   position: fixed;
   z-index: 10;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
 }
 
 #nav-bar > span {
@@ -21,10 +20,26 @@
 }
 
 .wr-tweet {
-  align-self: flex-end;
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 0.15rem;
+  background: transparent;
+  color: #ffffff;
+  border: none;
+  font: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+}
+
+.wr-tweet i {
+  color: #ff6b6b;
+  transition: transform 0.2s ease;
+}
+
+.wr-tweet[aria-expanded="false"] i {
+  transform: rotate(-90deg);
 }
 
 .container {

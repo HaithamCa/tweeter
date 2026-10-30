@@ -19,11 +19,11 @@
     />
 
     <!-- App CSS -->
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/header.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/tweet.css" type="text/css" />
+    <link rel="stylesheet" href="./styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="./styles/nav.css" type="text/css" />
+    <link rel="stylesheet" href="./styles/header.css" type="text/css" />
+    <link rel="stylesheet" href="./styles/new-tweet.css" type="text/css" />
+    <link rel="stylesheet" href="./styles/tweet.css" type="text/css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -33,47 +33,64 @@
     />
 
     <!-- External JS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js"
       integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
-    <!-- App JS -->
   </head>
 
   <body>
     <!-- Top nav bar (fixed) -->
     <nav id="nav-bar">
       <span>tweeter</span>
-      <div class="wr-tweet">
-        <button style="background-color: transparent; color: white; border: none;"> <span style="font-weight: bold;">Write</span> a new tweet </button>
-        <i class="fas fa-angle-double-down" style="color: red"></i>
-      </div>
+      <button type="button" id="write-tweet-toggle" class="wr-tweet" aria-expanded="true" aria-controls="new-tweet-section">
+        <span><strong>Write</strong> a new tweet</span>
+        <i class="fas fa-angle-double-down" aria-hidden="true"></i>
+      </button>
     </nav>
     <div class="header-main-container">
       <header class="profile">
-        <div>
-          <img src="/images/profile-hex.png" />
+        <img id="profile-avatar" src="./images/profile-hex.png" alt="" />
+        <div id="profile-identity" class="is-hidden">
+          <h2 id="profile-name"></h2>
+          <p id="profile-handle"></p>
+          <button type="button" id="logout-button">Log out</button>
         </div>
-        <br />
-        <h2>Your Name</h2>
+        <form id="auth-form">
+          <h2 id="auth-title">Create your account</h2>
+          <label id="auth-name-field">
+            Name
+            <input id="auth-name" name="name" type="text" maxlength="40" autocomplete="name" />
+          </label>
+          <label>
+            Handle
+            <input id="auth-handle" name="handle" type="text" maxlength="16" autocomplete="username" placeholder="yourname" />
+          </label>
+          <label>
+            Password
+            <input id="auth-password" name="password" type="password" autocomplete="new-password" />
+          </label>
+          <p id="auth-error" class="auth-error is-hidden"></p>
+          <button type="submit" id="auth-submit">Create account</button>
+          <button type="button" id="auth-toggle">Already have an account? Sign in</button>
+        </form>
       </header>
 
       <!-- Page-specific (main) content here -->
       <main class="container">
-        <section class="new-tweet">
+        <section id="new-tweet-section" class="new-tweet">
+          <p id="compose-hint" class="compose-hint">Sign in to post as yourself.</p>
           <div class="error-message">
             <i class="fas fa-exclamation-triangle"></i>
           </div>
           <h2 class="tweet-address"></h2>
-          <form id="compose" method="POST" action="/tweets/">
+          <form id="compose" method="POST" action="./tweets/">
             <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
             <div class="input-tweet">
               <button type="submit">Tweet</button>
-              <output name="counter" class="counter" for="tweet-text">140</output
-              >
+              <output name="counter" class="counter" for="tweet-text">140</output>
             </div>
           </form>
         </section>
@@ -81,6 +98,6 @@
       </main>
     </div>
     <script src="./scripts/composer-char-counter.js"></script>
-    <script src="/scripts/client.js"></script>
+    <script src="./scripts/client.js"></script>
   </body>
 </html>

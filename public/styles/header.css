@@ -1,15 +1,105 @@
 header.profile {
-  height: 500px;
+  min-height: 500px;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: #cc8800;
   background-image: url("https://www.transparenttextures.com/patterns/cardboard-flat.png");
+  padding: 5.5em 1.25rem 1.75rem;
+  z-index: 1;
 }
 
 header.profile img {
-    margin-top: 5em
+  width: 180px;
+  height: auto;
+}
+
+#profile-identity {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#profile-name,
+#auth-title {
+  margin: 0.75rem 0 0.2rem;
+  text-align: center;
+}
+
+#auth-title {
+  font-size: 1.35rem;
+}
+
+#profile-handle {
+  margin: 0;
+}
+
+#logout-button,
+#auth-form button[type="submit"] {
+  font-family: "Bungee", cursive;
+  cursor: pointer;
+}
+
+#logout-button {
+  margin-top: 0.8rem;
+  background: transparent;
+  color: #3d2914;
+  border: 2px solid #3d2914;
+  padding: 0.35rem 0.75rem;
+}
+
+#auth-form {
+  width: min(100%, 320px);
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+#auth-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+#auth-form input {
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 400;
+  padding: 0.35rem 0.55rem;
+  border: none;
+  border-bottom: 2px solid #3d2914;
+  background: rgba(255, 255, 255, 0.78);
+  color: #3d2914;
+}
+
+#auth-form button[type="submit"] {
+  background-color: #4056a1;
+  color: #ffffff;
+  border: none;
+  padding: 0.5rem 0.8rem;
+  margin-top: 0.2rem;
+}
+
+#auth-toggle {
+  background: none;
+  border: none;
+  color: #3d2914;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 0.85rem;
+  padding: 0;
+}
+
+.auth-error {
+  margin: 0;
+  background: #ffffff;
+  color: #9b1c1c;
+  border: 2px solid #9b1c1c;
+  padding: 0.4rem 0.6rem;
+  font-size: 0.85rem;
 }
 
 @media (min-width: 1024px) {
@@ -21,19 +111,22 @@ header.profile img {
     header.profile {
       width: 35%;
       position: fixed;
-      top: 50px;
-      margin: 4em 0em 1em 2em;
-      padding-top: 1em;
+      top: 5.5em;
+      margin: 0 0 1em 1.5rem;
+      padding: 1.25rem 1.25rem 1.5rem;
       border-radius: 3%;
+      max-height: calc(100vh - 7em);
+      overflow: auto;
     }
     header.profile img {
-        margin-top: 2em
+      width: 150px;
     }
   
     main.container {
-      width: 50%;
+      width: 55%;
+      margin-left: auto;
       margin-right: 2em;
-      margin-top: 4em;
+      margin-top: 6em;
     }
     section.new-tweet {
       background-color: transparent;

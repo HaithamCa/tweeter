@@ -64,3 +64,8 @@ section.new-tweet {
   background-color: transparent;
   border: none;
 }
+
+.compose-hint {
+  margin: 0 0 0.75rem;
+  font-size: 0.9rem;
+}
